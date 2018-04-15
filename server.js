@@ -99,13 +99,14 @@ app.get('/canteen', function (req, res) {
 });
 
 app.get('/canteen/img/:img?', function (req, res, next) {
-  if (req.params.img){
+  res.send(req.params.img);
+  /*if (req.params.img){
     var img = fs.readFileSync('Views/img/' + req.params.img, 'binary');
     res.writeHead('200', {'Content-Type': 'image/jpeg'});
     res.end(img, 'binary');
   } else {
     next();
-  }
+  }*/
 });
 
 app.get('/pagecount', function (req, res) {
