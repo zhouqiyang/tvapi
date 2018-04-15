@@ -100,14 +100,19 @@ app.get('/canteen', function (req, res) {
 });
 
 app.get('/canteen/img/:img?', function (req, res, next) {
-  res.send(process.cwd() + '/views/img/' + req.params.img);
-  /*if (req.params.img){
-    var img = fs.readFileSync(process.cwd() + '/views/img/' + req.params.img, 'binary');
-    res.writeHead('200', {'Content-Type': 'image/jpeg'});
-    res.end(img, 'binary');
+  //res.send(process.cwd() + '/views/img/' + req.params.img);
+  if (req.params.img){
+    try{
+      var img = fs.readFileSync(process.cwd() + '/views/img/' + req.params.img, 'binary');
+      res.writeHead('200', {'Content-Type': 'image/jpeg'});
+      res.end(img, 'binary');
+    }
+    catch(e){
+      res.send(e);
+    }
   } else {
     next();
-  }*/
+  }
 });
 
 app.get('/pagecount', function (req, res) {
