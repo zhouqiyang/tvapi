@@ -99,13 +99,29 @@ app.get('/canteen', function (req, res) {
   }
 });
 
-app.get('/canteen/img/:img?', function (req, res, next) {
-  //res.send(process.cwd() + '/views/img/' + req.params.img);
-  if (req.params.img){
+app.get('/canteen/img/:file?', function (req, res, next) {
+  //res.send(process.cwd() + '/views/img/' + req.params.file);
+  if (req.params.file){
     try{
-      var img = fs.readFileSync(process.cwd() + '/views/img/' + req.params.img, 'binary');
+      var file = fs.readFileSync(process.cwd() + '/views/img/' + req.params.file, 'binary');
       res.writeHead('200', {'Content-Type': 'image/jpeg'});
-      res.end(img, 'binary');
+      res.end(file, 'binary');
+    }
+    catch(e){
+      res.send(e);
+    }
+  } else {
+    next();
+  }
+});
+
+app.get('/canteen/js/:file?', function (req, res, next) {
+  //res.send(process.cwd() + '/views/img/' + req.params.img);
+  if (req.params.file){
+    try{
+      var file = fs.readFileSync(process.cwd() + '/views/js/' + req.params.file, 'utf-8');
+      res.writeHead('200', {'Content-Type': 'text/javascript'});
+      res.end(file, 'utf-8');
     }
     catch(e){
       res.send(e);
