@@ -101,7 +101,7 @@ app.get('/canteen', function (req, res) {
 
 app.get('/canteen/img/:img?', function (req, res, next) {
   if (req.params.img){
-    var img = fs.readFileSync(process.cwd() + '/Views/img/' + req.params.img, 'binary');
+    var img = fs.readFileSync(process.cwd() + '/views/img/' + req.params.img, 'binary');
     res.writeHead('200', {'Content-Type': 'image/jpeg'});
     res.end(img, 'binary');
   } else {
