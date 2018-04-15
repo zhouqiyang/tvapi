@@ -99,7 +99,7 @@ app.get('/canteen', function (req, res) {
   }
 });
 
-app.get('/canteen/img/:file?', function (req, res, next) {
+app.get('/img/:file?', function (req, res, next) {
   //res.send(process.cwd() + '/views/img/' + req.params.file);
   if (req.params.file){
     try{
@@ -115,7 +115,7 @@ app.get('/canteen/img/:file?', function (req, res, next) {
   }
 });
 
-app.get('/canteen/js/:file?', function (req, res, next) {
+app.get('/js/:file?', function (req, res, next) {
   //res.send(process.cwd() + '/views/img/' + req.params.img);
   if (req.params.file){
     try{
