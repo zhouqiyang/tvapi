@@ -1,13 +1,14 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan'),
+    //morgan  = require('morgan'),
+    http    = require('http'),
     fs      = require('fs');
     
-Object.assign=require('object-assign')
+//Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
-app.use(morgan('combined'))
+//app.use(morgan('combined'))
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
@@ -37,9 +38,10 @@ var db = null,
     dbDetails = new Object();
 
 var initDb = function(callback) {
-  if (mongoURL == null) return;
+  /*if (mongoURL == null) return;
 
   var mongodb = require('mongodb');
+  var mongodb = null;
   if (mongodb == null) return;
 
   mongodb.connect(mongoURL, function(err, conn) {
@@ -54,7 +56,7 @@ var initDb = function(callback) {
     dbDetails.type = 'MongoDB';
 
     console.log('Connected to MongoDB at: %s', mongoURL);
-  });
+  });*/
 };
 
 app.get('/', function (req, res) {
@@ -146,10 +148,101 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-// error handling
-app.use(function(err, req, res, next){
-  console.error(err.stack);
-  res.status(500).send('Something bad happened!');
+app.get('/tvapi/decode.do', function (req, res) {
+  if (req.query.url){
+      var url = req.query.url;
+      url = url.replace("http://", "").replace("https://", "");
+      var host = url.match(/[^\/]*/)[0];
+      var path = url.match(/[\/|\?].*$/)[0];
+      if (path == ""){
+        res.writeHead('200', {'Content-Type': 'application/json'});
+        res.end("{error:1,message:\"视频地址格式错误。\"}", 'utf-8');
+        return;
+      }
+      /*else {
+            res.writeHead('200', {'Content-Type': 'application/json'});
+            res.end("{host:\"" + host + "\",path:\"" + path + "\"}", 'utf-8');
+            return;
+      }*/
+    try{
+        var options = {
+            host: host,
+            port: 80,
+            path: path,
+            method:"GET"
+        };
+        http.request(options, function(r){
+            r.setEncoding("utf-8");
+            var s = "";
+            r.on("data",function(chunk){
+                s += chunk;
+            }).on("end",function(){
+                //根据正则表达式检索返回html中的链接地址
+                var match = s.match(/video.php\?.+?(?=")/g);
+                if (match.length == 0){
+                    res.writeHead('200', {'Content-Type': 'application/json'});
+                    res.end("{error:2,message:\"该视频不能解析。\"}", 'utf-8');
+                    return;
+                }
+                s = match[0];
+                
+                if (s == ""){
+                    res.writeHead('200', {'Content-Type': 'application/json'});
+                    res.end("{error:3,message:\"获取视频地址失败。\"}", 'utf-8');
+                    return;
+                }
+                //---------------------------------------------------------------
+                //第二次转换
+                options = {
+                        host: host,
+                        port: 80,
+                        path: "/" + s,
+                        method:"GET"
+                    };
+                http.request(options, function(r){
+                    r.setEncoding("utf-8");
+                    s = "";
+                    r.on("data",function(chunk){
+                        s += chunk;
+                    }).on("end",function(){
+                        //根据正则表达式检索返回html中的链接地址
+                        //var match = s.match(/video.php\?.+?(?=")/g);
+                        //s = match[0];
+                        res.writeHead('200', {'Content-Type': 'application/json'});
+                        res.end(s, 'utf-8');
+                    });
+                }).on("error",function(err){
+                    res.writeHead('200', {'Content-Type': 'application/json'});
+                    res.end("{error:4,message:\"" + err + "\"}", 'utf-8');
+                }).end();
+                //---------------------------------------------------------------
+            });
+        }).on("error",function(err){
+            res.writeHead('200', {'Content-Type': 'application/json'});
+            res.end("{error:5,message:\"" + err + "\"}", 'utf-8');
+        }).end();
+    }
+    catch(e){
+      res.send(e);
+    }
+  } else {
+    next();
+  }
+});
+
+app.get('/tvapi/:file?', function (req, res) {
+  if (req.params.file){
+    try{
+      var file = fs.readFileSync(process.cwd() + '/json/' + req.params.file, 'utf-8');
+      res.writeHead('200', {'Content-Type': 'application/json'});
+      res.end(file, 'utf-8');
+    }
+    catch(e){
+      res.send(e);
+    }
+  } else {
+    next();
+  }
 });
 
 initDb(function(err){
@@ -159,4 +252,4 @@ initDb(function(err){
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 
-module.exports = app ;
+module.exports = app;
