@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>jQuery仿美团外卖APP订餐购物车代码</title>
+<title>外卖APP订餐购物车代码</title>
 
 <style>
 html,body,div,p,form,label,ul,li,dl,dt,dd,ol,img,button,b,em,strong,small,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;list-style:none;font-style:normal;}
@@ -40,12 +40,13 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 .footer .right .disable{background:#dbdbdb;}  
 .footer .xhlbtn{display:block;text-align:center;line-height:45px;background-color:#F03C03;padding:0 15px;color:#fff;font-weight:bold;}  
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.2.0/json2html.min.js"></script>
 </head>
 
 <body>
 <div class="main">
 	<div class="left-menu">
-		<ul>  
+		<ul id="feekd">  
            <li class="active">营养套餐<span class="num-price"></span></li>  
            <li>酒水饮料</li>  
            <li>酒水饮料</li>  
@@ -424,7 +425,83 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
-$(function () {  
+function getItemHtml(name,feekd,price){
+//用注释的方式取得字符串模板
+/*
+<div class="menu-txt">
+<h4>[name]</h4>
+<p class="list1">[feekd]</p>
+<p class="list2"><b>￥[price]</b></p>
+  <div class="btn">
+    <button class="minus">
+    <strong></strong></button>
+    <i>0</i>
+    <button class="add">
+    <strong></strong>
+    </button><i class="price">[price]</i>
+  </div>
+</div>
+*/
+  var html = String(getItemHtml);
+  html = html.substring(html.indexOf("/*") + 3, html.indexOf("*/"));
+  html = html.replace(/\[name\]/g, name);
+  html = html.replace(/\[feekd\]/g, feekd);
+  html = html.replace(/\[price\]/g, price);
+  return html;
+}
+$(function () {
+    var t = {'<>':'li','html':'${name}','id':'${id}'};
+    var feekds = [
+        {"name":"营养套餐","id":1},
+        {"name":"营养套餐1","id":2},
+        {"name":"营养套餐2","id":3},
+        {"name":"营养套餐3","id":4},
+        {"name":"营养套餐4","id":5},
+        {"name":"营养套餐5","id":6}
+    ];
+    $("ul#feekd").html(json2html.transform(feekds,t));
+    $("ul#feekd").children(":first").addClass("active");
+    
+    var fees = [
+        {"name":"京酱肉丝","id":1,"price":25,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"宫保鸡丁","id":2,"price":20,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":3,"price":18,"feekd":2,"feekdnm":"营养套餐","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":4,"price":18,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":5,"price":25,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":6,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":7,"price":25,"feekd":5,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":8,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":9,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":10,"price":25,"feekd":3,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":11,"price":25,"feekd":3,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":12,"price":25,"feekd":3,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":13,"price":25,"feekd":4,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":14,"price":25,"feekd":4,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":15,"price":25,"feekd":4,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":16,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":17,"price":25,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":18,"price":25,"feekd":3,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"京酱肉丝","id":19,"price":25,"feekd":4,"feekdnm":"家常菜","img":"img/pic.png"}
+    ];
+
+    $(".con").empty();
+    for (i = 0; i < feekds.length; i++){
+        var page = $("<div class='right-con'></div>");
+        var ul = $("<ul></ul>");
+        page.append(ul);
+    	var d = fees.filter(function(e){return e.feekd == feekds[i].id;});
+    	for (j = 0; j < d.length; j++){
+    		var li = $("<li></li>");
+    		ul.append(li);
+    		var menuImg = $('<div class="menu-img"><img src="img/pic.png" width="55" height="55" /></div>');
+    		var s = getItemHtml(d[j].name, d[j].feekdnm, d[j].price);
+            var menuTxt = $(s);
+    		li.append(menuImg).append(menuTxt);
+            $(".con").append(page);
+    	}
+    	//var li = ul.append('<li><div class="menu-img"><img src="img/pic.png" width="55" height="55" /></div><div class="menu-txt"><h4>1234</h4></div></li>');
+    }
+    
 	//加的效果  
 	$(".add").click(function () {  
 		$(this).prevAll().css("display", "inline-block");  
@@ -450,15 +527,15 @@ $(function () {
 		var danjia = $(this).nextAll(".price").text();//获取单价  
 		var a = $("#totalpriceshow").html();//获取当前所选总价  
 		$("#totalpriceshow").html((a * 1 - danjia * 1).toFixed(2));//计算当前所选总价  
-		 
-		var nm = $("#totalcountshow").html();//获取数量  
-		$("#totalcountshow").html(nm * 1 - 1);  
-		//如果数量小于或等于0则隐藏减号和数量  
-		if (num <= 0) {  
-			$(this).next().css("display", "none");  
-			$(this).css("display", "none");  
-			jss();//改变按钮样式  
-			 return  
+		
+		var nm = $("#totalcountshow").html();//获取数量 
+		$("#totalcountshow").html(nm * 1 - 1);
+		//如果数量小于或等于0则隐藏减号和数量 
+		if (num <= 0) {
+			$(this).next().css("display", "none");
+			$(this).css("display", "none");
+			jss();//改变按钮样式 
+			return;
 		}  
 	});  
 	function jss() {  
