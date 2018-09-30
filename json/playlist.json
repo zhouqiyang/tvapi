@@ -7,31 +7,31 @@
     {
         "title": "翡翠台2",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=jade",
+        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=jade",
         "decode": "true"
     },
     {
         "title": "明珠台",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=pearl",
+        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=pearl",
         "decode": "true"
     },
     {
         "title": "珠江电影",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=zjdy",
+        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=zjdy",
         "decode": "true"
     },
     {
         "title": "星空卫视",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hxkws",
+        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=hxkws",
         "decode": "true"
     },
     {
         "title": "广东卫视",
         "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
-        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hgdws",
+        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=hgdws",
         "decode": "true"
     },
     {
@@ -43,7 +43,7 @@
     {
         "title": "湖南卫视",
         "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
-        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hhnws",
+        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=hhnws",
         "decode": "true"
     },
     {
