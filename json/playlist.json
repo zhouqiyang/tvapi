@@ -1,0 +1,104 @@
+﻿[
+    {
+        "title": "翡翠台",
+        "imageUrl": "http://www.zhiboo.net/images/g.gif",
+        "videoUrl": "http://m.567it.com/jade.m3u8"
+    },
+    {
+        "title": "翡翠台2",
+        "imageUrl": "http://www.zhiboo.net/images/g.gif",
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=jade",
+        "decode": "true"
+    },
+    {
+        "title": "明珠台",
+        "imageUrl": "http://www.zhiboo.net/images/g.gif",
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=pearl",
+        "decode": "true"
+    },
+    {
+        "title": "珠江电影",
+        "imageUrl": "http://www.zhiboo.net/images/g.gif",
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=zjdy",
+        "decode": "true"
+    },
+    {
+        "title": "星空卫视",
+        "imageUrl": "http://www.zhiboo.net/images/g.gif",
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hxkws",
+        "decode": "true"
+    },
+    {
+        "title": "广东卫视",
+        "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hgdws",
+        "decode": "true"
+    },
+    {
+        "title": "广东卫视2",
+        "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
+        "videoUrl": "rtsp://183.59.17.22:554/PLTV/88888895/224/3221226765/000001000000000600000000003370150.smil",
+        "decode": "true"
+    },
+    {
+        "title": "湖南卫视",
+        "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hhnws",
+        "decode": "true"
+    },
+    {
+        "title": "南方卫视",
+        "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
+        "videoUrl": "http://stream1.grtn.cn/tvs2/sd/live.m3u8?_upt=c53b7f701516548742"
+    },
+    {
+        "title": "动画王国",
+        "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
+        "videoUrl": "http://183.207.249.15/PLTV/3/224/3221225555/index.m3u8"
+    },
+    {
+        "title": "中央1",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv1.m3u8"
+    },
+    {
+        "title": "中央2",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv2.m3u8"
+    },
+    {
+        "title": "中央3",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv3.m3u8"
+    },
+    {
+        "title": "中央4",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv4.m3u8"
+    },
+    {
+        "title": "中央5",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv5.m3u8"
+    },
+    {
+        "title": "中央6",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv6.m3u8"
+    },
+    {
+        "title": "中央7",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv7.m3u8"
+    },
+    {
+        "title": "中央8",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv8.m3u8"
+    },
+    {
+        "title": "中央9",
+        "imageUrl": "http://www.zhiboo.net/images/cctv.gif",
+        "videoUrl": "http://ivi.bupt.edu.cn/hls/cctv9.m3u8"
+    }
+]
