@@ -494,7 +494,7 @@ $(function () {
     	for (j = 0; j < d.length; j++){
     		var li = $("<li></li>");
     		ul.append(li);
-    		var menuImg = $('<div class="menu-img"><img src="' + d[j].img + '" width="55" height="55" /></div>');
+    		var menuImg = $('<div class="menu-img"><img src="img/' + d[j].id + '.jpg" onerror=\'javascript:this.src="img/pic.png"\' width="55" height="55" /></div>');
     		var s = getItemHtml(d[j].name, d[j].feekdnm, d[j].price);
             var menuTxt = $(s);
     		li.append(menuImg).append(menuTxt);
