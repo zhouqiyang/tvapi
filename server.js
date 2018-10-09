@@ -250,7 +250,7 @@ app.get('/tvapi/:file?', function (req, res) {
 app.get('/uptime', function (req, res) {
   try{
     var uptime = process.uptime();
-    res.writeHead('200', {'Content-Type': 'application/json'});
+    res.writeHead('200', {'Content-Type': 'text/html'});
     res.end(uptime, 'utf-8');
   }
   catch(e){
