@@ -210,9 +210,9 @@ app.get('/tvapi/decode.do', function (req, res) {
                         //s = match[0];
                         //res.writeHead('200', {'Content-Type': 'application/json'});
                         //res.end(s, 'utf-8');
-                    	var json = JSON.parse(s);
-                    	if (json.appfu != ""){
-                    	    res.redirect(302, json.appfu);
+                    	var jo = JSON.parse(s);
+                    	if (jo.appfu != ""){
+                    	    res.redirect(302, jo.appfu);
                     	}else{
                             res.writeHead('200', {'Content-Type': 'application/json'});
                             res.end(s, 'utf-8');
