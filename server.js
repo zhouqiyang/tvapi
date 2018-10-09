@@ -206,13 +206,11 @@ app.get('/tvapi/decode.do', function (req, res) {
                         s += chunk;
                     }).on("end",function(){
                         //根据正则表达式检索返回html中的链接地址
-                        //var match = s.match(/video.php\?.+?(?=")/g);
-                        //s = match[0];
+                        var match = s.match(/{"appfu":".+?(?=")/g);
+                        s = match[0];
                         //res.writeHead('200', {'Content-Type': 'application/json'});
                         //res.end(s, 'utf-8');
-                    	var jo = JSON.parse(s);
-                        res.writeHead('200', {'Content-Type': 'application/json'});
-                        res.end(s, 'utf-8');
+                        res.redirect(302, s);
                     });
                 }).on("error",function(err){
                     res.writeHead('200', {'Content-Type': 'application/json'});
