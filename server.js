@@ -247,6 +247,21 @@ app.get('/tvapi/:file?', function (req, res) {
   }
 });
 
+app.get('/uptime', function (req, res) {
+	  if (req.params.file){
+	    try{
+	      var uptime = process.uptime();
+	      res.writeHead('200', {'Content-Type': 'application/json'});
+	      res.end(uptime, 'utf-8');
+	    }
+	    catch(e){
+	      res.send(e);
+	    }
+	  } else {
+	    next();
+	  }
+	});
+
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
