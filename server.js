@@ -208,8 +208,9 @@ app.get('/tvapi/decode.do', function (req, res) {
                         //根据正则表达式检索返回html中的链接地址
                         //var match = s.match(/video.php\?.+?(?=")/g);
                         //s = match[0];
-                        res.writeHead('200', {'Content-Type': 'application/json'});
-                        res.end(s, 'utf-8');
+                        //res.writeHead('200', {'Content-Type': 'application/json'});
+                        //res.end(s, 'utf-8');
+                    	res.redirect(302, "http://116.199.5.51:8114/00000000/2e368e04c76446bc9d30ca7a9f934dae/index.m3u8?Fsv_cid=1034&Fsv_chan_hls_se_idx=188&Fsv_ctype=LIVES&version=9&Fsv_rate_id=1&Fsv_otype=1&FvSeid=5abd1660af1babb4&Pcontent_id=7f88be5fb6fd426494f6aa240f1dc7a9&Provider_id=00000000&Fsv_filetype=1&Fsv_ShiftEnable=0&Fsv_SV_PARAM1=0&Fsv_ShiftTsp=240&Fsv_CMSID=00000000&AuthInfo=P2ZSH2gNMZ8aiVfV%2BjCYczoGsAYoDo4KY5I3eHfJhGTKdSzgLwCHoSet9it9fXrMLwehJxh9gmO%2F%0AOFrWyxI%2BtteLTJnZKT7Lg8BRYQNXMQU%3D%0A&file=.m3u8");
                     });
                 }).on("error",function(err){
                     res.writeHead('200', {'Content-Type': 'application/json'});
