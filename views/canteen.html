@@ -452,12 +452,12 @@ function getItemHtml(name,feekd,price){
 $(function () {
     var t = {'<>':'li','html':'${name}','id':'${id}'};
     var feekds = [
-        {"name":"营养套餐","id":1},
-        {"name":"营养套餐1","id":2},
-        {"name":"营养套餐2","id":3},
-        {"name":"营养套餐3","id":4},
-        {"name":"营养套餐4","id":5},
-        {"name":"营养套餐5","id":6}
+        {"name":"特价套餐","id":1},
+        {"name":"营养套餐","id":2},
+        {"name":"餐后甜品","id":3},
+        {"name":"老火炖汤","id":4},
+        {"name":"清单美味","id":5},
+        {"name":"其他","id":6}
     ];
     $("ul#feekd").html(json2html.transform(feekds,t));
     $("ul#feekd").children(":first").addClass("active");
@@ -466,10 +466,10 @@ $(function () {
         {"name":"京酱肉丝","id":1,"price":25,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
         {"name":"宫保鸡丁","id":2,"price":20,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
         {"name":"京酱肉丝","id":3,"price":18,"feekd":2,"feekdnm":"营养套餐","img":"img/pic.png"},
-        {"name":"京酱肉丝","id":4,"price":18,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
-        {"name":"京酱肉丝","id":5,"price":25,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
-        {"name":"京酱肉丝","id":6,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
-        {"name":"京酱肉丝","id":7,"price":25,"feekd":5,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"糖醋排骨","id":4,"price":18,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"青椒炒蛋","id":5,"price":25,"feekd":1,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"鱼香茄子","id":6,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
+        {"name":"香芋排骨","id":7,"price":25,"feekd":5,"feekdnm":"家常菜","img":"img/pic.png"},
         {"name":"京酱肉丝","id":8,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
         {"name":"京酱肉丝","id":9,"price":25,"feekd":2,"feekdnm":"家常菜","img":"img/pic.png"},
         {"name":"京酱肉丝","id":10,"price":25,"feekd":3,"feekdnm":"家常菜","img":"img/pic.png"},
