@@ -211,14 +211,8 @@ app.get('/tvapi/decode.do', function (req, res) {
                         //res.writeHead('200', {'Content-Type': 'application/json'});
                         //res.end(s, 'utf-8');
                     	var jo = JSON.parse(s);
-                    	if (jo.appfu){
-                    	    //res.redirect(302, jo.appfu);
-                            res.writeHead('200', {'Content-Type': 'application/json'});
-                            res.end(s, 'utf-8');
-                    	}else{
-                            res.writeHead('200', {'Content-Type': 'application/json'});
-                            res.end(s, 'utf-8');
-                    	}
+                        res.writeHead('200', {'Content-Type': 'application/json'});
+                        res.end(s, 'utf-8');
                     });
                 }).on("error",function(err){
                     res.writeHead('200', {'Content-Type': 'application/json'});
