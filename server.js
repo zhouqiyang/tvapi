@@ -250,8 +250,12 @@ app.get('/tvapi/:file?', function (req, res) {
 app.get('/uptime', function (req, res) {
   try{
     var uptime = process.uptime();
-    res.writeHead('200', {'Content-Type': 'text/html'});
-    res.end(uptime, 'utf-8');
+    var d = Math.floor(uptime / 86400);
+    var h = Math.floor(uptime % 86400 / 3600);
+    var m = Math.floor(uptime % 86400 % 3600 / 60);
+    var s = Math.floor(uptime % 86400 % 3600 % 60);
+    res.writeHead('200', {'Content-Type': 'text/html;charset=utf-8'});
+    res.end('运行时间：' + d.toString() + "天" + h.toString() + '时' + m.toString() + '分' + s.toString() + '秒', 'utf-8');
   }
   catch(e){
     res.send(e);
