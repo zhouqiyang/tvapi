@@ -7,44 +7,32 @@
     {
         "title": "翡翠台2",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=jade",
-        "decode": "true"
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=jade"
     },
     {
         "title": "明珠台",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=pearl",
-        "decode": "true"
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=pearl"
     },
     {
         "title": "珠江电影",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=zjdy",
-        "decode": "true"
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=zjdy"
     },
     {
         "title": "星空卫视",
         "imageUrl": "http://www.zhiboo.net/images/g.gif",
-        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=hxkws",
-        "decode": "true"
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hxkws"
     },
     {
         "title": "广东卫视",
         "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
-        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=hgdws",
-        "decode": "true"
-    },
-    {
-        "title": "广东卫视2",
-        "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
-        "videoUrl": "rtsp://183.59.17.22:554/PLTV/88888895/224/3221226765/000001000000000600000000003370150.smil",
-        "decode": "true"
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hgdws"
     },
     {
         "title": "湖南卫视",
         "imageUrl": "http://www.gtv-1.com/upfile/201382619587993.jpg",
-        "videoUrl": "http://private-tvapi.herokuapp.com/tvapi/decode.do?url=http://tv.567it.com/?url=hhnws",
-        "decode": "true"
+        "videoUrl": "http://23.94.25.197:8080/tvapi/decode.do?url=http://tv.567it.com/?url=hhnws"
     },
     {
         "title": "南方卫视",
