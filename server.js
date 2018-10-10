@@ -155,7 +155,7 @@ app.get('/tvapi/decode.do', function (req, res) {
       var host = url.match(/[^\/]*/)[0];
       var path = url.match(/[\/|\?].*$/)[0];
       if (path == ""){
-        res.writeHead('200', {'Content-Type': 'application/json'});
+        res.writeHead('200', {'Content-Type': 'application/json;charset=utf-8'});
         res.end("{error:1,message:\"视频地址格式错误。\"}", 'utf-8');
         return;
       }
@@ -180,14 +180,14 @@ app.get('/tvapi/decode.do', function (req, res) {
                 //根据正则表达式检索返回html中的链接地址
                 var match = s.match(/video.php\?.+?(?=")/g);
                 if (match.length == 0){
-                    res.writeHead('200', {'Content-Type': 'application/json'});
+                    res.writeHead('200', {'Content-Type': 'application/json;charset=utf-8'});
                     res.end("{error:2,message:\"该视频不能解析。\"}", 'utf-8');
                     return;
                 }
                 s = match[0];
                 
                 if (s == ""){
-                    res.writeHead('200', {'Content-Type': 'application/json'});
+                    res.writeHead('200', {'Content-Type': 'application/json;charset=utf-8'});
                     res.end("{error:3,message:\"获取视频地址失败。\"}", 'utf-8');
                     return;
                 }
@@ -214,13 +214,13 @@ app.get('/tvapi/decode.do', function (req, res) {
                         res.redirect(302, s);
                     });
                 }).on("error",function(err){
-                    res.writeHead('200', {'Content-Type': 'application/json'});
+                    res.writeHead('200', {'Content-Type': 'application/json;charset=utf-8'});
                     res.end("{error:5,message:\"" + err + "\"}", 'utf-8');
                 }).end();
                 //---------------------------------------------------------------
             });
         }).on("error",function(err){
-            res.writeHead('200', {'Content-Type': 'application/json'});
+            res.writeHead('200', {'Content-Type': 'application/json;charset=utf-8'});
             res.end("{error:6,message:\"" + err + "\"}", 'utf-8');
         }).end();
     }
@@ -236,7 +236,7 @@ app.get('/tvapi/:file?', function (req, res) {
   if (req.params.file){
     try{
       var file = fs.readFileSync(process.cwd() + '/json/' + req.params.file, 'utf-8');
-      res.writeHead('200', {'Content-Type': 'application/json'});
+      res.writeHead('200', {'Content-Type': 'application/json;charset=utf-8'});
       res.end(file, 'utf-8');
     }
     catch(e){
